@@ -1,6 +1,5 @@
 #container {
   text-align: center;
-  margin-top: 40px;
   position: absolute;
   left: 0;
   right: 0;
@@ -34,19 +33,21 @@
 }
 .description {
   padding-left: 20px;
-  font-size: 22px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 }
 .marca {
   padding-left: 20px;
-  font-size: 10px;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
 }
 .button-mas {
-  position: fixed;
   bottom: 20px;
-  left: 90%;
+  left: -10%;
   width: 30px;
   height: 30px;
-  margin-left: -15px;
+  padding-top: 2%;
+  padding-right: 20%;
   font-size: 20px;
 }
 .ec-stars-wrapper {
@@ -91,4 +92,10 @@
   font-size: 16px;
   color: white;
 }
-
+.skew{
+	transform: skewY(-5deg); /* W3C */
+	-webkit-transform: skewY(-5deg); /* Safari & Chrome */
+	-moz-transform: skewY(-5deg); /* Firefox */
+	-ms-transform: skewY(-5deg); /* Internet Explorer */
+	-o-transform: skewY(-5deg); /* Opera */
+}

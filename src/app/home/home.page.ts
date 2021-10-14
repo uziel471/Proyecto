@@ -13,18 +13,47 @@ export class HomePage {
       precio: 243,
       marca:'Mead',
       image: 'cuaderno.jpg',
-      rank:5
+      rank:5,
+      mas:'+'
     },
     {
       id: 2,
-      descripcion: 'cuadro',
+      descripcion: 'Cuadro',
       precio: 223,
       marca:'Mead',
       image: 'cuaderno.jpg',
-      rank:5
+      rank:5,
+      mas:'+'
+    },
+    {
+      id: 3,
+      descripcion: 'Dibujo',
+      precio: 324,
+      marca:'Mead',
+      image: 'cuaderno.jpg',
+      rank:5,
+      mas:'+'
+    },
+    {
+      id: 4,
+      descripcion: 'Doble Raya',
+      precio: 324,
+      marca:'Mead',
+      image: 'cuaderno.jpg',
+      rank:5,
+      mas:'+'
+    },
+    {
+      id: 5,
+      descripcion: 'Cuadriculado-milimetrado',
+      precio: 344,
+      marca:'Mead',
+      image: 'cuaderno.jpg',
+      rank:5,
+      mas:'+'
     }
 
-  ]
+  ];
   constructor() {}
 
 }

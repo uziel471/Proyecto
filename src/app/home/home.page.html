@@ -1,23 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar class="caja">
-    <ion-img class="image" src="../../assets/img/fondo_cuadernos.jpg"></ion-img>
-      <ion-label class="titule">
-        Cuadernos
-      </ion-label>
-      <ion-label class="subtitule">
-        {{cuadernos.length + 'Productos'}}
-      </ion-label>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <ion-list>
+    <ion-header [translucent]="true">
+      <ion-toolbar class="skew">
+        <ion-img class="image" src="../../assets/img/fondo_cuadernos.jpg"></ion-img>
+          <ion-label class="titule">
+            Cuadernos
+          </ion-label>
+          <ion-label class="subtitule">
+            {{cuadernos.length + '  Productos'}}
+          </ion-label>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list style="padding-top: 8%; ">
       <ion-item *ngFor = " let c of cuadernos " >
         <img class="icon-product" src="../../assets/icon/cuaderno.jpg">
         <ion-label>
           <h2 class="description">{{c.descripcion}}</h2>
-          <p class="description">{{c.marca}}</p>
+          <h3 class="description">{{c.marca}}</h3>
           <h2 class="description">{{'$' + c.precio + '.00'}}</h2>
         </ion-label>
         <div class="ec-stars-wrapper">
@@ -27,7 +27,9 @@
           <a data-value="4" title="Votar con 4 estrellas">&#9733;</a>
           <a data-value="5" title="Votar con 5 estrellas">&#9733;</a>
         </div>
-        <ion-button class="button-mas"> + </ion-button>
+        <div class="button-mas" >
+          <ion-button>+ </ion-button>
+        </div>
       </ion-item>
     </ion-list>
   </div>
