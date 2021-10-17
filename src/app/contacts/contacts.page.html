@@ -17,14 +17,14 @@
       </ion-toolbar>
     </ion-header>
     <ion-list style="padding-top: 8%; ">
-      <ion-item *ngFor="let contact of contacts" [routerLink]="['/contacts', contact.id]">
+      <ion-item *ngFor="let proveedor of proveedores" [routerLink]="['/contacts', proveedor.id]">
         <ion-avatar slot="start">
           <ion-img src="../assets/img/user.png"></ion-img>
         </ion-avatar>
         <ion-label>
-          <h2 class="description">{{ contact.nombre + ' ' + contact.apellidoPaterno}}</h2>
-          <h3 class="description">{{ contact.email }}</h3>
-          <h2 class="description">{{ contact.equipo.equipo }}</h2>
+          <h2 class="description">{{ proveedor.nombre + ' ' + proveedor.apellidoPaterno}}</h2>
+          <h3 class="description">{{ proveedor.email }}</h3>
+          <h2 class="description">{{ proveedor.equipo }}</h2>
         </ion-label>
         <div class="button-mas" >
           <ion-icon name="arrow-forward-outline"></ion-icon>

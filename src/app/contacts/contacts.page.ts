@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ProveedorService } from './proveedor.service';
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.page.html',
@@ -7,18 +8,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactsPage implements OnInit {
 
-  contacts = [
+  proveedores = [
   ];
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient, private proveedorService: ProveedorService) {}
 
   ngOnInit() {
-    this.http.get<any>('https://herojsapi.herokuapp.com/colaboradorcontroller.php')
-      .subscribe(res => {
-        this.contacts = res.colaboradores;
-        console.log(this.contacts);
-      });
+    this.proveedores = this.proveedorService.getProveedores();
   }
 
+  // por lo pronto no lo ocupo
+    // this.http.get<any>('https://herojsapi.herokuapp.com/colaboradorcontroller.php')
+    //   .subscribe(res => {
+    //     this.contacts = res.colaboradores;
+    //     console.log(this.contacts);
+    //   });
 }
