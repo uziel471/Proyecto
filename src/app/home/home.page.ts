@@ -1,59 +1,22 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   cuadernos = [
-    {
-      id: 1,
-      descripcion: 'Raya',
-      precio: 243,
-      marca:'Mead',
-      image: 'cuaderno.jpg',
-      rank:5,
-      mas:'+'
-    },
-    {
-      id: 2,
-      descripcion: 'Cuadro',
-      precio: 223,
-      marca:'Mead',
-      image: 'cuaderno.jpg',
-      rank:5,
-      mas:'+'
-    },
-    {
-      id: 3,
-      descripcion: 'Dibujo',
-      precio: 324,
-      marca:'Mead',
-      image: 'cuaderno.jpg',
-      rank:5,
-      mas:'+'
-    },
-    {
-      id: 4,
-      descripcion: 'Doble Raya',
-      precio: 324,
-      marca:'Mead',
-      image: 'cuaderno.jpg',
-      rank:5,
-      mas:'+'
-    },
-    {
-      id: 5,
-      descripcion: 'Cuadriculado-milimetrado',
-      precio: 344,
-      marca:'Mead',
-      image: 'cuaderno.jpg',
-      rank:5,
-      mas:'+'
-    }
-
   ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any>('https://hibrydapp.herokuapp.com/cuadernos')
+       .subscribe(res => {
+         this.cuadernos = res;
+         console.log(this.cuadernos);
+       });
+  }
+
 
 }

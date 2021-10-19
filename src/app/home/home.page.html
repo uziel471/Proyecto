@@ -14,7 +14,7 @@
     </ion-header>
     <ion-list style="padding-top: 8%; ">
       <ion-item *ngFor = " let c of cuadernos " >
-        <img class="icon-product" src="../../assets/icon/cuaderno.jpg">
+        <img class="icon-product" src="{{ c.image }}">
         <ion-label>
           <h2 class="description">{{c.descripcion}}</h2>
           <h3 class="description">{{c.marca}}</h3>
@@ -28,7 +28,7 @@
           <a data-value="5" title="Votar con 5 estrellas">&#9733;</a>
         </div>
         <div class="button-mas" >
-          <ion-button>+ </ion-button>
+          <ion-button> {{ c.mas }}</ion-button>
         </div>
       </ion-item>
     </ion-list>
