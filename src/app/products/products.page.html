@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="container">
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="skew">
+        <ion-img class="image" src="../../assets/img/fondo_cuadernos.jpg"></ion-img>
+          <ion-label class="titule">
+            Cuadernos
+          </ion-label>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list >
+      <ion-item *ngFor = " let c of products " [routerLink]="['/products', c.id]">
+        <img class="icon-product" src="{{ c.image }}">
+        <ion-label>
+          <h2 class="description">{{c.title}}</h2>
+          <h3 class="description">{{(c.amazonPrime) ? 'Es Prime' : 'No prime'}} </h3>
+          <h2 class="description">{{'$' + c.price }} {{(c.priceSymbol) ? c.priceSymbol : 'MXN'}}</h2>
+        </ion-label>
+        <div class="ec-stars-wrapper" >
+          <a data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+          <a data-value="2" title="Votar con 1 estrellas">&#9733;</a>
+          <a data-value="3" title="Votar con 1 estrellas">&#9733;</a>
+          <a data-value="4" title="Votar con 1 estrellas">&#9733;</a>
+          <a data-value="5" title="Votar con 1 estrellas">&#9733;</a>
+        </div>
+        <div class="button-mas" >
+          <ion-button>+</ion-button>
+        </div>
+      </ion-item>
+    </ion-list>
+</ion-content>
