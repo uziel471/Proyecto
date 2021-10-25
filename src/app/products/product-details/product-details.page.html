@@ -14,7 +14,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-list >
-    <ion-item ng-repeat-start = "p in product">
+    <ion-item *ngFor = " let p of product ">
       <img class="icon-product" src="{{ p.main_image.link }}">
       <ion-label>
         <h2 class="description">{{p.title}}</h2>

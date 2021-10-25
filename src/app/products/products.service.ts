@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  products = [];
-  product = [];
+  private products = [];
+  private product = [];
   constructor(private http: HttpClient) { }
 
   getProducts() {
@@ -17,16 +17,12 @@ export class ProductsService {
        });
   }
 
-  async getProduct() {
-    // this.http.post<any>('http://localhost:4000/item', { itemId: productId})
-    //    .subscribe(res => {
-    //      this.product = res;
-    //      console.log('Getting data of walmart api');
-    //      console.log(this.product);
-    //    });
-     const response = await this.http.get('http://localhost:4000/item')
-     .toPromise();
-     console.log('service response', response);
-     return response;
+  async getProduct(productId) {
+    const params = new HttpParams().append('item_id', productId);
+    console.log('se envia params: ', params);
+    const response = await this.http.get<any>('http://localhost:4000/item', {params})
+      .toPromise();
+    console.log('service response', response);
+    return response;
   }
 }

@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-  item = [];
+  private product = [];
+  private item;
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -16,11 +17,19 @@ export class ProductDetailsPage implements OnInit {
     ) { }
 
   async ngOnInit() {
+    //se obtiene el id desde la url
     const recipeId = this.activatedRoute.snapshot.paramMap.get('productId');
-    console.log('id: ', recipeId);
 
-    const producto = await this.productsService.getProduct();
-    console.log('traer 1 solo producto', producto);
-    return producto;
+    // TO DO: mejorar esta shit
+    this.product.push(await this.getItem(recipeId));
+    console.log('traer 1 solo producto', this.product);
+    return this.product;
+  }
+
+  async getItem(recipeId) {
+    console.log('getItem function recived this : ', recipeId);
+    this.item = await this.productsService.getProduct(recipeId);
+    console.log('i will return this: ', this.item);
+    return this.item;
   }
 }
