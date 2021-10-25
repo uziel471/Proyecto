@@ -9,7 +9,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductDetailsPage implements OnInit {
   private product = [];
-  private item;
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -28,8 +27,8 @@ export class ProductDetailsPage implements OnInit {
 
   async getItem(recipeId) {
     console.log('getItem function recived this : ', recipeId);
-    this.item = await this.productsService.getProduct(recipeId);
-    console.log('i will return this: ', this.item);
-    return this.item;
+    const item = await this.productsService.getProduct(recipeId);
+    console.log('i will return this: ', item);
+    return item;
   }
 }

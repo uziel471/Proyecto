@@ -68,16 +68,17 @@
     position: relative;
     display: inline-block;
     text-align: center;
+    margin: 20%;
   }
   
   .titule{
     position: absolute;
-    top: 80%;
-    left: 30%;
+    top: 90%;
+    left: 45%;
     font-family: 'Courier New', Courier, monospace;
     transform: translate(-50%, -50%);
-    font-size: 34px;
-    color: white;
+    font-size: 16px;
+    color: orange;
   }
   .subtitule{
     position: absolute;

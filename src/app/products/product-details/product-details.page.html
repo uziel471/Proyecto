@@ -4,18 +4,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="container">
+<ion-content id="container" *ngFor = " let p of product">
   <ion-header class="ion-no-border">
     <ion-toolbar class="skew">
-      <ion-img class="image" src="../../assets/img/fondo_cuadernos.jpg"></ion-img>
-        <ion-label class="titule">
-          Cuadernos
-        </ion-label>
+      <ion-img class="image" src="{{p.main_image.link}}"></ion-img>
+        <ion-label class="titule">{{p.title}}</ion-label>
     </ion-toolbar>
   </ion-header>
   <ion-list >
-    <ion-item *ngFor = " let p of product ">
-      <img class="icon-product" src="{{ p.main_image.link }}">
+    <ion-item>
+      <img class="icon-product" src="">
       <ion-label>
         <h2 class="description">{{p.title}}</h2>
         <h3 class="description">{{p.brand}}</h3>
