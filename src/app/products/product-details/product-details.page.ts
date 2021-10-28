@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-  private product = [];
+  public product = [];
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -30,5 +30,9 @@ export class ProductDetailsPage implements OnInit {
     const item = await this.productsService.getProduct(recipeId);
     console.log('i will return this: ', item);
     return item;
+  }
+
+  abrirCarrito(){
+    console.log('abrir carrito');
   }
 }

@@ -10,16 +10,16 @@
     font-size: 20px;
     line-height: 26px;
   }
-  
+
   #container p {
     font-size: 16px;
     line-height: 22px;
-  
+
     color: #8c8c8c;
-  
+
     margin: 0;
   }
-  
+
   #container a {
     text-decoration: none;
   }
@@ -52,25 +52,22 @@
   .ec-stars-wrapper {
     font-size: 0;
     float: right;
-    margin-bottom: 50px;
+    margin-right: 20px;
+    margin-bottom: 10px;
   }
   .ec-stars-wrapper a {
     text-decoration: none;
-    font-size: 28px;
-    font-size: 1rem;
-    color: #888;
-  }
-  
-  .ec-stars-wrapper:hover a {
+    font-size: 2.5rem;
     color: #6D6;
   }
+
   .image{
     position: relative;
     display: inline-block;
     text-align: center;
     margin: 20%;
   }
-  
+
   .titule{
     position: absolute;
     top: 90%;
@@ -97,4 +94,3 @@
       -o-transform: skewY(-5deg); /* Opera */
       margin-bottom: 30px;
   }
-  
