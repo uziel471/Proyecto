@@ -12,15 +12,15 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'contacts',
+    path: 'products',
     children: [
       {
         path: '',
-        loadChildren: () => import('./contacts/contacts.module').then( m => m.ContactsPageModule)
+        loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
       },
       {
-        path: ':id',
-        loadChildren: () => import('./contacts/contactdetail/contactdetail.module').then(m => m.ContactdetailPageModule),
+        path: ':productId',
+        loadChildren: () => import('./products/product-details/product-details.module').then( m => m.ProductDetailsPageModule)
       }
     ]
   },

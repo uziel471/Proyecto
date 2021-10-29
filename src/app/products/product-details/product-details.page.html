@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>product-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="abrirCarrito()" #cart>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-card>
+    <img src="https://unionpapelera.com.mx/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/0/4/04676_1.png" />
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card-subtitle>Cuaderno de raya</ion-card-subtitle>
+          <ion-card-title>Cuaderno de raya</ion-card-title>
+          </ion-col>
+          <ion-col>
+            <div class="ec-stars-wrapper" >
+              <a data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+              <a data-value="2" title="Votar con 1 estrellas">&#9733;</a>
+              <a data-value="3" title="Votar con 1 estrellas">&#9733;</a>
+              <a data-value="4" title="Votar con 1 estrellas">&#9733;</a>
+              <a data-value="5" title="Votar con 1 estrellas">&#9733;</a>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Precio: $ 240.00 MX</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-button style="float: right; margin-right: 20px; margin-block-end:20px;" value="2" color="primary">+</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
