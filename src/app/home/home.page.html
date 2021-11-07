@@ -1,32 +1,15 @@
 
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <ion-header [translucent]="true">
-      <ion-toolbar class="skew">
-        <ion-img class="image" src="../../assets/img/fondo_cuadernos.jpg"></ion-img>
-          <!-- <ion-label class="titule">
-            Cuadernos
-          </ion-label> -->
-          <!-- <ion-label class="subtitule">
-            {{cuadernos.length + '  Productos'}}
-          </ion-label> -->
-      </ion-toolbar>
-    </ion-header>
-    <ion-list >
-      <ion-item *ngFor = " let c of cuadernos " >
-        <img class="icon-product" src="{{ c.image }}">
-        <ion-label>
-          <h2 class="description">{{c.title}}</h2>
-          <h3 class="description">{{c.rating}} </h3>
-          <h2 class="description">{{'$' + c.price + c.priceSymbol}}</h2>
-        </ion-label>
-        <div class="ec-stars-wrapper" >
-          <a data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-        </div>
-        <div class="button-mas" >
-          <ion-button>+</ion-button>
-        </div>
-      </ion-item>
-    </ion-list>
-  </div>
+    <ion-content >
+      <ion-img style="margin-top: 100px;" src="../assets/img/undraw_education_f8ru.png">
+
+      </ion-img>
+      <ion-title style="font-size: 30px; text-align: center; margin-top: 20px;">
+        Carga tu lista
+      </ion-title>
+      <ion-button style="display: flex; align-items: center; justify-content: center; margin-top: 50px;" color="warning">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+
+    </ion-content>
 </ion-content>
