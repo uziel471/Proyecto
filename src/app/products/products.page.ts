@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
@@ -14,6 +15,8 @@ export class ProductsPage implements OnInit {
   ngOnInit() {
     this.getInitialData();
   }
+
+
 
   getInitialData() {
     this.http.get<any>('http://localhost:4000/notebook')
