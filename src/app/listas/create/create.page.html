@@ -1,15 +1,17 @@
 <ion-content [fullscreen]="true">
   <ion-content >
-    <ion-img style="margin-top: 100px;" src="../assets/img/undraw_education_f8ru.png">
+      <ion-img style="margin-top: 100px;" src="../assets/img/undraw_education_f8ru.png">
 
-    </ion-img>
-    <ion-title style="font-size: 30px; text-align: center; margin-top: 20px;">
-      Ingresa un nombre
-    </ion-title>
-    <ion-input style="font-size: 30px; text-align: center; margin-top: 20px;" placeholder="Enter name"></ion-input>
-    <ion-button expand="block" style="margin-top: 40px;"  color="warning" href="#">
-      Crear
-    </ion-button>
-
+      </ion-img>
+      <form #formulario>
+        <ion-title style="font-size: 30px; text-align: center; margin-top: 20px;">
+          Ingresa un nombre
+        </ion-title>
+        <ion-input type="text" required ngModel [(ngModel)]="nombre" style="font-size: 30px; text-align: center; margin-top: 20px;" name="nameList" placeholder="Enter name">
+        </ion-input>
+        <ion-button (click)="createdList()" expand="block" style="margin-top: 40px;" type="submit"  color="warning">
+          Crear
+        </ion-button>
+      </form>
   </ion-content>
 </ion-content>
