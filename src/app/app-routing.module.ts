@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'listas',
+    path: 'listas:miListaId',
     loadChildren: () => import('./listas/listas.module').then( m => m.ListasPageModule)
   },
   {

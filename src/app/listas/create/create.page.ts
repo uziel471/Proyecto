@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Type } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
@@ -9,14 +9,17 @@ import { Component, OnInit, Type } from '@angular/core';
 export class CreatePage{
 
   nombre: string;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   createdList() {
     const postData = {
       namePerson: this.nombre,
       usuarioId: 1
     };
-    this.http.post('http://localhost:4000/lista/lista/create', postData).subscribe((res: any) => {
-      console.log(res);
+    this.http.post<any>('http://localhost:4000/lista/lista/create', postData).subscribe((res) => {
+      this.router.navigate(['listas']);
+    },
+    err => {
+        console.error('ha surgido un error', err);
     });
   }
 
