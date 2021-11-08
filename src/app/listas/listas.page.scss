@@ -8,11 +8,16 @@ ion-thumbnail {
 }
 
 
-.btn-list-width {
+.check-list-width {
     width: 10%;
+    height: 35%;
 }
 
 .thumbnail {
     height: 60%;
     width: 15%;
+  }
+
+  ion-checkbox {
+    --border-color: red no-repeat;
   }
