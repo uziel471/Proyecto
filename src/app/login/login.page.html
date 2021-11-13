@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="arrow-back">
+          Click me
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/signup">
+       Sing Up
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <h1>Login</h1>
+    <img src="../../assets/img/user.png"/>
+  </div>
+  <form #formulario id="form" method="post">
+    <app-input placeholder="Email" required  [(ngModel)]="email" name="email"></app-input>
+    <app-input placeholder="Password" required  [(ngModel)]="password" name="password"></app-input>
+    <ion-button expand="block" type="submit" shape="round" (click)="login()">Login</ion-button>
+  </form>
+</ion-content>
