@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'viewcotizacion',
+    loadChildren: () => import('./viewcotizacion/viewcotizacion.module').then( m => m.ViewcotizacionPageModule)
   }
 
 ];
