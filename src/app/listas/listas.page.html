@@ -49,30 +49,16 @@
 
     <ion-row class="ion-margin-bottom">
       <ion-col>
-      <!-- <ion-title class="ion-margin-start ion-text-start"  ><h2>Lista de {{miLista.name_person}}</h2></ion-title> -->
+      <ion-title class="ion-margin-start ion-text-start"  ><h2>Lista de {{miLista.name_person}}</h2></ion-title>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-item href="#" [routerLink]="['/products']">
-            <ion-checkbox color="success" class="btn-list-width"></ion-checkbox>
-            <h3 class="ion-margin-start">Libreta</h3>
-            <ion-thumbnail slot="end" class="thumbnail">
-              <p class="ion-text-center">20</p>
-            </ion-thumbnail>
-          </ion-item>
-          <ion-item href="listas">
-            <ion-checkbox color="success" class="btn-list-width check-border"></ion-checkbox>
-            <h3 class="ion-margin-start">Lapiz</h3>
-            <ion-thumbnail slot="end" class="thumbnail">
-              <p class="ion-text-center">20</p>
-            </ion-thumbnail>
-          </ion-item>
-          <ion-item href="listas">
-            <ion-checkbox color="success" class="btn-list-width"></ion-checkbox>
-            <h3 class="ion-margin-start">Borrador</h3>
+          <ion-item *ngFor=" let categorie of bdCategories">
+            <ion-checkbox (ionChange)="saveProductSelected(categorie.id, $event)" color="success" class="btn-list-width"></ion-checkbox>
+            <h3 class="ion-margin-start">{{ categorie.name }}</h3>
             <ion-thumbnail slot="end" class="thumbnail">
               <p class="ion-text-center">20</p>
             </ion-thumbnail>
@@ -81,7 +67,7 @@
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-      <ion-button  color="primary" fill="outline" size="small" href="/products">
+      <ion-button  color="primary" fill="outline" size="small" (click)="saveListContent(miLista.id)" >
         <ion-icon size="2" name="checkmark-outline"></ion-icon>
       </ion-button>
     </ion-row>

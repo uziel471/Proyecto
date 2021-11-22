@@ -10,6 +10,10 @@ const routes: Routes = [
   },  {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'milista',
+    loadChildren: () => import('./milista/milista.module').then( m => m.MilistaPageModule)
   }
 
 ];

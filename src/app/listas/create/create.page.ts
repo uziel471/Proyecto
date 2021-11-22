@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Type } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-create',

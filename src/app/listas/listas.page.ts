@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-listas',
   templateUrl: './listas.page.html',
@@ -8,18 +9,63 @@ import { HttpClient } from '@angular/common/http';
 
 export class ListasPage implements OnInit {
   public miLista = {};
-  constructor(private http: HttpClient) { }
+  public miProductList = [];
+  public bdCategories = [];
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    this.getCategories();
+    this.getListName();
 
+  }
+  getListName() {
     this.http.get<any>('http://localhost:4000/lista/milista').subscribe((res) => {
       console.log(res.rows[0]);
       this.miLista = res.rows[0];
       console.log('lista array', this.miLista);
-  },
-  err => {
+    },
+    err => {
       console.error('ha surgido un error', err);
-  });
+    });
   }
 
+  getCategories() {
+    this.http.get<any>('http://localhost:4000/lista/getCategories').subscribe((res) => {
+      console.log(res.rows);
+      this.bdCategories = res.rows;
+      console.log('categorias', this.bdCategories);
+    },
+    err => {
+      console.error('ha surgido un error', err);
+    });
+  }
+  saveProductSelected(categorieId, event) {
+    const { checked } = event.srcElement;
+    if (!categorieId && !checked) {
+      console.log('no se ha seleccionado ningun producto');
+      return;
+    }
+    console.log(categorieId, checked);
+    if (!checked) {
+      this.miProductList = this.miProductList.filter((idProduct) => idProduct !== categorieId);
+      return;
+    }
+    this.miProductList.push(categorieId);
+    console.log('array actual: ', this.miProductList);
+  }
+
+  saveListContent(myListaId) {
+    if (this.miProductList.length > 0) {
+      const data = {
+        userId: myListaId,
+        products: this.miProductList,
+       };
+      this.http.post<any>('http://localhost:4000/lista/lista/contentList', data).subscribe((res) => {
+      this.router.navigate(['products']);
+    },
+    err => {
+        console.error('ha surgido un error', err);
+    });
+    }
+  }
 }
