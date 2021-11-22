@@ -7,9 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: ListasPage
-  },  {
+  },
+  {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'viewcotizacion',
+    loadChildren: () => import('./viewcotizacion/viewcotizacion.module').then( m => m.ViewcotizacionPageModule)
   },
   {
     path: 'milista',

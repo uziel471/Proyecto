@@ -31,13 +31,18 @@ const routes: Routes = [
   {
     path: 'listas',
     loadChildren: () => import('./listas/listas.module').then( m => m.ListasPageModule)
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'signup',
     loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'viewlistas',
+    loadChildren: () => import('./listas/viewlistas/viewlistas.module').then( m => m.ViewlistasPageModule)
   },
 
 ];
