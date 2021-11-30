@@ -22,5 +22,4 @@ export class CreatePage{
         console.error('ha surgido un error', err);
     });
   }
-
 }
