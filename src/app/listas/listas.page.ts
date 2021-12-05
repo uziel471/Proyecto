@@ -29,6 +29,7 @@ export class ListasPage implements OnInit {
     });
   }
 
+  
   getCategories() {
     this.http.get<any>('http://localhost:4000/lista/getCategories').subscribe((res) => {
       console.log(res.rows);
