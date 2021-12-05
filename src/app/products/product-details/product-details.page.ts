@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductDetailsPage implements OnInit {
   public product = [];
+  private selectedProducts = [];
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -34,5 +35,11 @@ export class ProductDetailsPage implements OnInit {
 
   abrirCarrito(){
     console.log('abrir carrito');
+  }
+
+  saveProductSelected(id) {
+    console.log('id del producto recido', id);
+    this.selectedProducts.push(id);
+    console.log('items seleccionados', this.selectedProducts);
   }
 }

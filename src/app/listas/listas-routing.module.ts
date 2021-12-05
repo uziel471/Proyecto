@@ -7,7 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: ListasPage
-<<<<<<< HEAD
   },
   {
     path: 'create',
@@ -22,17 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./milista/milista.module').then( m => m.MilistaPageModule)
   }
 
-=======
-  },  {
-    path: 'create',
-    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
-  },
-  {
-    path: 'viewcotizacion',
-    loadChildren: () => import('./viewcotizacion/viewcotizacion.module').then( m => m.ViewcotizacionPageModule)
-  }
-
->>>>>>> 78a82cecd2e9ae42603fdf6fbcf6677a85fba8a7
 ];
 
 @NgModule({

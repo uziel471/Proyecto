@@ -55,41 +55,38 @@
     <ion-col>
       <!-- Productos de amazon-->
       <ion-list *ngIf="valueSelectedSegment === 1">
-        <ion-label>Amazon Lista</ion-label>
-        <ion-item
-          *ngFor=" let c of filteredProducts "
-          [routerLink]="['/products', c.id]"
-        >
-          <img class="icon-product" src="{{ c.image }}" />
-          <ion-label>
-            <h2 class="description">{{c.title}}</h2>
-            <h3 class="description">
-              {{(c.amazonPrime) ? 'Es Prime' : 'No prime'}}
-            </h3>
-            <h2 class="description">
-              {{'$' + c.price }} {{(c.priceSymbol) ? c.priceSymbol : 'MXN'}}
-            </h2>
-          </ion-label>
-          <div class="ec-stars-wrapper">
-            <a data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-            <a data-value="2" title="Votar con 1 estrellas">&#9733;</a>
-            <a data-value="3" title="Votar con 1 estrellas">&#9733;</a>
-            <a data-value="4" title="Votar con 1 estrellas">&#9733;</a>
-            <a data-value="5" title="Votar con 1 estrellas">&#9733;</a>
-          </div>
-          <div class="button-mas">
-            <ion-button>+</ion-button>
-          </div>
+        <ion-item *ngFor=" let c of filteredProducts ">
+          <ion-col size="2">
+            <img [routerLink]="['/products', c.id]" style="cursor: pointer;" class="icon-product" src="{{ c.image }}" alt="img" />
+          </ion-col>
+          <ion-col size="7" [routerLink]="['/products', c.id]" style="cursor: pointer;">
+            <ion-label>
+              <p class="description">{{c.title}}</p>
+              <p class="description">
+                {{(c.amazonPrime) ? 'Es Prime' : 'No prime'}}
+              </p>
+              <p class="description">
+                {{'$' + c.price }} {{(c.priceSymbol) ? c.priceSymbol : 'MXN'}}
+              </p>
+            </ion-label>
+          </ion-col>
+          <ion-col size="3">
+            <ion-row>
+              <ion-col>
+                <a data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+                <a data-value="2" title="Votar con 1 estrellas">&#9733;</a>
+                <a data-value="3" title="Votar con 1 estrellas">&#9733;</a>
+                <a data-value="4" title="Votar con 1 estrellas">&#9733;</a>
+                <a data-value="5" title="Votar con 1 estrellas">&#9733;</a>
+              </ion-col>
+            </ion-row>
+          </ion-col>
         </ion-item>
       </ion-list>
       <!-- Productos de walmart -->
       <ion-list *ngIf="valueSelectedSegment === 2">
-        <ion-label>Walmart Lista</ion-label>
-        <ion-item
-          *ngFor=" let c of filteredProducts "
-          [routerLink]="['/products', c.id]"
-        >
-          <img class="icon-product" src="{{ c.image }}" />
+        <ion-item *ngFor=" let c of filteredProducts ">
+          <img class="icon-product" alt="img" src="{{ c.image }}" />
           <ion-label>
             <h2 class="description">{{c.title}}</h2>
             <h3 class="description">
@@ -106,9 +103,11 @@
             <a data-value="4" title="Votar con 1 estrellas">&#9733;</a>
             <a data-value="5" title="Votar con 1 estrellas">&#9733;</a>
           </div>
-          <div class="button-mas">
-            <ion-button>+</ion-button>
-          </div>
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="saveProductSelected(c.id)">+</ion-button>
+            </ion-col>
+          </ion-row>
         </ion-item>
       </ion-list>
     </ion-col>

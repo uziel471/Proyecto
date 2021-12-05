@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MenuController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
@@ -10,13 +10,22 @@ export class ProductsPage implements OnInit {
   valueSelectedSegment = 1;
   initialProducts = [];
   filteredProducts = [];
-  constructor(private http: HttpClient) { }
+  selectedProducts = [];
+  constructor(private http: HttpClient, public toastController: ToastController) { }
 
   ngOnInit() {
     this.getInitialData();
   }
 
-
+  async presentToast(msg, type) {
+    const toast = await this.toastController.create({
+      position: 'top',
+      color: type,
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+  }
 
   getInitialData() {
     this.http.get<any>('http://localhost:4000/notebook')
@@ -33,18 +42,14 @@ export class ProductsPage implements OnInit {
        });
   }
   async segmentChanged(event: CustomEvent) {
-    this.valueSelectedSegment = await parseInt(event.detail.value, 10);
+    this.valueSelectedSegment = parseInt(event.detail.value, 10);
     this.filteredProducts = await this.filterData(this.initialProducts);
     console.log('filtered data with button: ', this.filteredProducts);
     return this.filteredProducts;
   }
 
   filterData(data){
-    const filteredData = data.filter((producto) => {
-      if(this.valueSelectedSegment === producto.plataforma){
-        return producto;
-      }
-    });
-    return filteredData;
+      return data.filter((producto) => this.valueSelectedSegment === producto.plataforma );
   }
+
 }
