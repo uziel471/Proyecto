@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,10 +7,17 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage  {
+export class LoginPage implements OnInit {
   email: string;
   password: string;
   constructor(private http: HttpClient, private router: Router) { }
+
+  ngOnInit() {
+    const session = JSON.parse(window.localStorage.getItem('@session'));
+    if(session[0].correo && session[0].password){
+      this.router.navigate(['viewlistas']);
+    }
+  }
   login() {
     const email = this.email;
     const password = this.password;
