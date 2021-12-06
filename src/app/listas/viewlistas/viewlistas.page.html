@@ -33,31 +33,14 @@
   <h1 style="align-items: center; text-align: center;">
     Lista de utiles
   </h1>
-  <ion-list style="align-items: center; text-align: center;">
-    <ion-item>
-      <ion-avatar style="margin-left: 30px;">
+  <ion-list style="align-items: center; text-align: center;" *ngFor="let list of initialList">
+    <ion-item [routerLink]="['/viewlistas', list.id]">
+      <ion-avatar style="margin-left: 10px;">
         <ion-icon name="albums"></ion-icon><ion-icon name="albums"></ion-icon><br>
         <ion-icon name="albums"></ion-icon><ion-icon name="add"></ion-icon>
       </ion-avatar>
       <ion-label style="margin-left: 10px;">
-        <h2>Uziel Estrada</h2>
-        <h3>24 Utiles</h3>
-      </ion-label>
-      <ion-label>
-        <ion-icon name="more"></ion-icon>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-avatar style="margin-left: 30px;">
-        <ion-icon name="albums"></ion-icon><ion-icon name="albums"></ion-icon><br>
-        <ion-icon name="albums"></ion-icon><ion-icon name="add"></ion-icon>
-      </ion-avatar>
-      <ion-label style="margin-left: 10px;">
-        <h2>Alexander Jocobi</h2>
-        <h3>19 Utiles</h3>
-      </ion-label>
-      <ion-label>
-        <ion-icon name="more"></ion-icon>
+        <h2>{{list.name_person}}</h2>
       </ion-label>
     </ion-item>
   </ion-list>
@@ -65,7 +48,7 @@
 </ion-content>
 <ion-footer class="ion-no-border">
   <ion-toolbar>
-    <ion-button slot="end">
+    <ion-button slot="end" (click)="newList()">
       <ion-icon name="add"></ion-icon><ion-label>New List</ion-label>
     </ion-button>
   </ion-toolbar>

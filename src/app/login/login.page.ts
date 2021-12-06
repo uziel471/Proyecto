@@ -12,13 +12,19 @@ export class LoginPage  {
   password: string;
   constructor(private http: HttpClient, private router: Router) { }
   login() {
-    const correo = 'uziel471@gmail.com';
-    const gg = 'uziel471';
-    this.http.get<any>('http://localhost:4000/login/login/' + correo + '/' + gg).subscribe((res) => {
-      console.log('login',res);
+    const email = this.email;
+    const password = this.password;
+    console.log(email);
+    console.log(password);
+    this.http.get<any>('http://localhost:4000/login/login/' + email + '/' + password).subscribe((res) => {
+      if(res[0].correo && res[0].password){
+        const local = window.localStorage;
+        local.setItem('@session', JSON.stringify(res));
+        this.router.navigate(['viewlistas']);
+      }
     },
     err => {
-        console.error('ha surgido un error', err);
+      console.error('ha surgido un error', err);
     });
   }
 

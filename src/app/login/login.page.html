@@ -21,8 +21,8 @@
     <img src="../../assets/img/user.png" alt="userPhoto">
   </div>
   <form #formulario id="form" method="post">
-    <app-input placeholder="Email" required  [(ngModel)]="email" name="email"></app-input>
-    <app-input placeholder="Password" required  [(ngModel)]="password" name="password"></app-input>
+    <ion-input placeholder="Email" required  [(ngModel)]="email" name="email"></ion-input>
+    <ion-input placeholder="Password" required  [(ngModel)]="password" name="password"></ion-input>
     <ion-button expand="block" type="submit" shape="round" (click)="login()">Login</ion-button>
   </form>
 </ion-content>

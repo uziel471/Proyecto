@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ViewcotizacionPageRoutingModule } from './viewcotizacion-routing.module';
+import { CotizacionPageRoutingModule } from './cotizacion-routing.module';
 
-import { ViewcotizacionPage } from './viewcotizacion.page';
+import { CotizacionPage } from './cotizacion.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewcotizacionPageRoutingModule
+    CotizacionPageRoutingModule
   ],
-  declarations: [ViewcotizacionPage]
+  declarations: [CotizacionPage]
 })
-export class ViewcotizacionPageModule {}
+export class CotizacionPageModule {}

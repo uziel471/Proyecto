@@ -42,8 +42,19 @@ const routes: Routes = [
   },
   {
     path: 'viewlistas',
-    loadChildren: () => import('./listas/viewlistas/viewlistas.module').then( m => m.ViewlistasPageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./listas/viewlistas/viewlistas.module').then( m => m.ViewlistasPageModule)
+      },
+      {
+        path: ':idcotizacion',
+        loadChildren: () => import('./listas/viewlistas/cotizacion/cotizacion.module').then( m => m.CotizacionPageModule)
+      },
+    ]
   },
+
+
 
 ];
 

@@ -7,7 +7,13 @@ const routes: Routes = [
   {
     path: '',
     component: ViewlistasPage
-  }
+  },
+  {
+    path: 'cotizacion',
+    loadChildren: () => import('./cotizacion/cotizacion.module').then( m => m.CotizacionPageModule)
+  },
+
+
 ];
 
 @NgModule({

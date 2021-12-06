@@ -13,10 +13,6 @@ const routes: Routes = [
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'viewcotizacion',
-    loadChildren: () => import('./viewcotizacion/viewcotizacion.module').then( m => m.ViewcotizacionPageModule)
-  },
-  {
     path: 'milista',
     loadChildren: () => import('./milista/milista.module').then( m => m.MilistaPageModule)
   }
