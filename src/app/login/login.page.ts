@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     const session = JSON.parse(window.localStorage.getItem('@session'));
-    if(session[0].correo && session[0].password){
+    if(session){
       this.router.navigate(['viewlistas']);
     }
   }
