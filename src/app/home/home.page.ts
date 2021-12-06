@@ -21,16 +21,11 @@ export class HomePage {
 
   login(){
     console.log('Comprobando');
-//    window.localStorage.setItem('sessin', this.session);
 
     if(!window.localStorage.getItem('@session')){
-      this.redirectOther();
+      this.router.navigateByUrl('/login')
       console.log('no esta')
     }
-  }
-
-  redirectOther(){
-    this.router.navigateByUrl('/login')
   }
 
 }

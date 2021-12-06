@@ -13,6 +13,22 @@ export class ListasPage implements OnInit {
   public miProductList = [];
   public bdCategories = [];
   constructor(private http: HttpClient, private router: Router, public toastController: ToastController) { }
+  
+  /* Inicializa super implementación de Tercero */
+  ionViewWillEnter(){
+    this.login();  
+  }
+
+  login(){
+    console.log('Comprobando');
+
+    if(!window.localStorage.getItem('@session')){
+      this.router.navigateByUrl('/login')
+      console.log('no esta')
+    }
+  }
+
+  /* Finaliza super implementación de Tercero */
 
   async presentToast(msg, type) {
     const toast = await this.toastController.create({
@@ -24,6 +40,7 @@ export class ListasPage implements OnInit {
     toast.present();
   }
 
+  
 
   ngOnInit() {
     this.getCategories();
