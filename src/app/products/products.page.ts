@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-products',
@@ -11,7 +12,7 @@ export class ProductsPage implements OnInit {
   initialProducts = [];
   filteredProducts = [];
   selectedProducts = [];
-  constructor(private http: HttpClient, public toastController: ToastController) { }
+  constructor(private http: HttpClient, public toastController: ToastController, private router: Router) { }
 
   ngOnInit() {
     this.getInitialData();
@@ -51,5 +52,7 @@ export class ProductsPage implements OnInit {
   filterData(data){
       return data.filter((producto) => this.valueSelectedSegment === producto.plataforma );
   }
-
+  cotizacion(){
+    this.router.navigate(['cotizacion']);
+  }
 }

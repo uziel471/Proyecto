@@ -45,14 +45,42 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-label><p> Precio: $</p>></ion-label>
+            <ion-label><p> Price : {{p.price}}</p></ion-label>
           </ion-col>
           <ion-col>
-            <ion-input size="small" type="number" value="0"> </ion-input>
+            <ion-input size="small" [(ngModel)]="quantity" type="number" value="0"> </ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-button style="float: right; margin-right: 20px; margin-block-end:20px;" value="2" color="primary">+</ion-button>
+          <ion-button (click)="getProductSelected(p)" style="float: right; margin-right: 20px; margin-block-end:20px;" value="2" color="primary">+</ion-button>
+        </ion-row>
+        <ion-row>
+          <p><strong>Description</strong></p>
+          <p>{{ p.description }} </p>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p><strong>Brand</strong></p>
+            <p> {{p.brand}} </p>
+          </ion-col>
+          <ion-col>
+            <p><strong>Color</strong></p>
+            <p> {{p.color}} </p>
+          </ion-col>
+          <ion-col>
+            <p><strong>Dimensions</strong></p>
+            <p> {{p.dimensions}} </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p><strong>Model</strong></p>
+            <p> {{p.model}} </p>
+          </ion-col>
+          <ion-col>
+            <p><strong>Type</strong></p>
+            <p> {{p.type}} </p>
+          </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>

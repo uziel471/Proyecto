@@ -5,26 +5,25 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductsService {
+  public productsList = [];
   private products = [];
   private product = [];
   constructor(private http: HttpClient, private router: Router) { }
-
   /* Inicializa super implementación de Tercero */
     ionViewWillEnter(){
-      this.login();  
+      this.login();
     }
 
     login(){
       console.log('Comprobando');
 
       if(!window.localStorage.getItem('@session')){
-        this.router.navigateByUrl('/login')
-        console.log('no esta')
+        this.router.navigateByUrl('/login');
+        console.log('no esta');
       }
     }
 
   /* Finaliza super implementación de Tercero */
-
 
   getProducts() {
     this.http.get<any>('http://localhost:4000/notebook')
